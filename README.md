@@ -19,7 +19,7 @@
 
   链接①:``https://raw.githubusercontent.com/mihomo-party-org/override-hub/refs/heads/main/yaml/ACL4SSR_Online_Full_WithIcon.yaml``
 
-  链接②:``https://raw.githubusercontent.com/Kwensiu/ProxyRule/refs/heads/main/test1.yaml``
+  链接②:``https://raw.githubusercontent.com/Kwensiu/ProxyRule/refs/heads/main/Lastest.yaml``
   
   脚本
   ```
