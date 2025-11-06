@@ -51,9 +51,6 @@ dns:
   # fake-ip-filter end
   default-nameserver:
     - 223.5.5.5
-  nameserver-policy:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
@@ -65,8 +62,6 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: CN
-    geosite:
-      - gfw
     ipcidr:
       - 240.0.0.0/4
     domain:
