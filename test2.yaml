@@ -1,0 +1,57 @@
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
+  verride-destination: true
+
+dns:
+  enable: true
+  #prefer-h3: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  # fake-ip-filter start
+  fake-ip-filter:
+    - +.m2m
+    - injections.adguard.org
+    - local.adguard.org
+    - +.bogon
+    - +.lan
+    - +.local
+    - +.internal
+    - +.localdomain
+    - home.arpa
+    - 127.0.0.1.sslip.io
+    - 127.atlas.skk.moe
+    - dns.msftncsi.com
+    - "*.srv.nintendo.net"
+    - "*.stun.playstation.net"
+    - xbox.*.microsoft.com
+    - "*.xboxlive.com"
+    - "*.turn.twilio.com"
+    - "*.stun.twilio.com"
+    - stun.syncthing.net
+    - stun.*
+    - 127.*.*.*.sslip.io
+    - 127-*-*-*.sslip.io
+    - "*.127.*.*.*.sslip.io"
+    - "*-127-*-*-*.sslip.io"
+    - 127.*.*.*.nip.io
+    - 127-*-*-*.nip.io
+    - "*.127.*.*.*.nip.io"
+    - "*-127-*-*-*.nip.io"
+  # fake-ip-filter end
+  nameserver:
+    - https://223.5.5.5/dns-query
+    - https://doh.pub/dns-query
+  proxy-server-nameserver:
+    - https://223.5.5.5/dns-query
+    - https://doh.pub/dns-query
