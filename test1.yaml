@@ -15,56 +15,16 @@ sniffer:
 
 dns:
   enable: true
+  listen: 0.0.0.0:1053
   ipv6: false
+  respect-rules: true
   enhanced-mode: fake-ip
+  fake-ip-filter-mode: whitelist
+  use-hosts: ture
   fake-ip-range: 198.18.0.1/16
-  # fake-ip-filter start
   fake-ip-filter:
-    - +.m2m
-    - injections.adguard.org
-    - local.adguard.org
-    - +.bogon
-    - +.lan
-    - +.local
-    - +.internal
-    - +.localdomain
-    - home.arpa
-    - 127.0.0.1.sslip.io
-    - 127.atlas.skk.moe
-    - dns.msftncsi.com
-    - "*.srv.nintendo.net"
-    - "*.stun.playstation.net"
-    - xbox.*.microsoft.com
-    - "*.xboxlive.com"
-    - "*.turn.twilio.com"
-    - "*.stun.twilio.com"
-    - stun.syncthing.net
-    - stun.*
-    - 127.*.*.*.sslip.io
-    - 127-*-*-*.sslip.io
-    - "*.127.*.*.*.sslip.io"
-    - "*-127-*-*-*.sslip.io"
-    - 127.*.*.*.nip.io
-    - 127-*-*-*.nip.io
-    - "*.127.*.*.*.nip.io"
-    - "*-127-*-*-*.nip.io"
-  # fake-ip-filter end
-  default-nameserver:
-    - 223.5.5.5
+    - "rule-set:geolocation-!cn_domain"
   nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
-  fallback:
-    - tls://8.8.4.4
-    - tls://1.1.1.1
+    - 223.5.5.5
   proxy-server-nameserver:
-    - https://doh.pub/dns-query
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
-    domain:
-      - '+.google.com'
-      - '+.facebook.com'
-      - '+.youtube.com'
+    - https://8.8.8.8/dns-query
