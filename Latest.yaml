@@ -25,9 +25,6 @@ dns:
     - geosite:tld-!cn
     - geolocation-!cn
   nameserver:
-    - system
-    - 223.5.5.5
-    - 8.8.8.8
+    - https://223.5.5.5/dns-query
   proxy-server-nameserver:
-    - 223.5.5.5
-    - 8.8.8.8
+    - https://doh.pub/dns-query
