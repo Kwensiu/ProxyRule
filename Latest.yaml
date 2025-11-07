@@ -14,16 +14,20 @@ sniffer:
 
 dns:
   enable: true
-  listen: 0.0.0.0:1053
+  listen: '0.0.0.0:1053'
   ipv6: false
   respect-rules: true
   enhanced-mode: fake-ip
-  fake-ip-filter-mode: whitelist
-  use-hosts: ture
+  use-hosts: true
   fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: whitelist
   fake-ip-filter:
-    - "rule-set:geolocation-!cn_domain"
+    - geosite:tld-!cn
+    - geolocation-!cn
   nameserver:
+    - system
     - 223.5.5.5
+    - 8.8.8.8
   proxy-server-nameserver:
-    - https://8.8.8.8/dns-query
+    - 223.5.5.5
+    - 8.8.8.8
