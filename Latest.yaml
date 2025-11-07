@@ -19,7 +19,7 @@ dns:
   respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-filter-mode: whitelist
-  use-hosts: ture
+  use-hosts: true
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter:
     - "rule-set:geolocation-!cn_domain"
