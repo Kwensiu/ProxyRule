@@ -2,29 +2,46 @@ sniffer:
   enable: true
   sniff:
     HTTP:
-      ports: [80, 8080-8880]
+      ports:
+        - 80
+        - 8080
+        - 8443
+        - 8888
       override-destination: true
     TLS:
-      ports: [443, 8443]
-    QUIC:
-      ports: [443, 8443]
+      ports:
+        - 443
+        - 8443
   skip-domain:
-    - "Mijia Cloud"
-    - "+.push.apple.com"
+    - 'Mijia Cloud'
+    - '+.push.apple.com'
 
 dns:
   enable: true
-  listen: '0.0.0.0:1053'
+  listen: '0.0.0.0:53'
   ipv6: false
-  respect-rules: true
-  enhanced-mode: fake-ip
+  respect-rules: false
   use-hosts: true
+  use-system-hosts: true
+  enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter-mode: whitelist
   fake-ip-filter:
-    - geosite:tld-!cn
-    - geolocation-!cn
+    - 'geosite:geolocation-!cn'
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
   nameserver:
-    - https://223.5.5.5/dns-query
-  proxy-server-nameserver:
-    - https://doh.pub/dns-query
+    - tls://223.5.5.5:853
+    - tls://114.114.114.114:853
+  fallback:
+    - tls://1.1.1.1:853
+    - tls://dns.google:853
+  nameserver-policy:
+    'geosite:cn': ['tls://223.5.5.5:853','tls://114.114.114.114:853']
+    'geosite:geolocation-!cn': ['tls://1.1.1.1:853','tls://8.8.8.8:853']
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
