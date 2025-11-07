@@ -23,6 +23,8 @@ dns:
   respect-rules: false
   use-hosts: true
   use-system-hosts: true
+  cache-ttl: 3600
+  cache-persist: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter-mode: whitelist
@@ -34,14 +36,18 @@ dns:
   nameserver:
     - tls://223.5.5.5:853
     - tls://114.114.114.114:853
+    - https://dns.alidns.com/dns-query
   fallback:
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
     - tls://1.1.1.1:853
-    - tls://dns.google:853
   nameserver-policy:
     'geosite:cn': ['tls://223.5.5.5:853','tls://114.114.114.114:853']
     'geosite:geolocation-!cn': ['tls://1.1.1.1:853','tls://8.8.8.8:853']
+    '+.sekai.best': ['https://cloudflare-dns.com/dns-query', 'https://dns.quad9.net/dns-query']
   fallback-filter:
     geoip: true
     geoip-code: CN
     ipcidr:
       - 240.0.0.0/4
+      - 192.168.0.0/16
