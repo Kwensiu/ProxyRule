@@ -42,7 +42,6 @@ dns:
   nameserver-policy:
     'geosite:cn': ['tls://223.5.5.5:853','tls://114.114.114.114:853']
     'geosite:geolocation-!cn': ['tls://1.1.1.1:853','tls://8.8.8.8:853']
-    '+.sekai.best': ['https://cloudflare-dns.com/dns-query', 'https://dns.quad9.net/dns-query']
   fallback-filter:
     geoip: true
     geoip-code: CN
