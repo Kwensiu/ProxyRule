@@ -10,6 +10,7 @@ sniffer:
       ports:
         - 443
         - 8443
+      override-destination: true
   skip-domain:
     - 'Mijia Cloud'
     - '+.push.apple.com'
@@ -21,7 +22,7 @@ dns:
   respect-rules: false
   use-hosts: true
   use-system-hosts: true
-  cache-ttl: 3600
+  cache-ttl: 600
   cache-persist: false
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -30,13 +31,13 @@ dns:
     - 'geosite:geolocation-!cn'
   default-nameserver:
     - 223.5.5.5
-    - 114.114.114.114
   nameserver:
     - 223.5.5.5
     - 114.114.114.114
-  fallback:
     - 8.8.8.8
+  fallback:
     - 1.1.1.1
+    - 180.76.76.76
   fallback-filter:
     geoip: true
     geoip-code: CN
