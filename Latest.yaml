@@ -32,16 +32,11 @@ dns:
     - 223.5.5.5
     - 114.114.114.114
   nameserver:
-    - tls://223.5.5.5:853
-    - tls://114.114.114.114:853
-    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+    - 114.114.114.114
   fallback:
-    - https://dns.google/dns-query
-    - https://cloudflare-dns.com/dns-query
-    - tls://1.1.1.1:853
-  nameserver-policy:
-    'geosite:cn': ['tls://223.5.5.5:853','tls://114.114.114.114:853']
-    'geosite:geolocation-!cn': ['tls://1.1.1.1:853','tls://8.8.8.8:853']
+    - 8.8.8.8
+    - 1.1.1.1
   fallback-filter:
     geoip: true
     geoip-code: CN
